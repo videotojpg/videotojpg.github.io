@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Free Video to Image Converter Online | Extract JPGs Instantly",
+  description = "Convert video to high-quality JPG, PNG, or WebP image frames online for free. 100% private, client-side video frame extractor with custom FPS and batch ZIP download."
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url.origin);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content="Free Video to Image Converter Online | Extract JPGs Instantly" />
+    <meta property="og:description" content="Extract crystal-clear image frames from MP4, WebM, and MOV videos locally in your browser. Fast, free, and completely private." />
+    <meta property="og:image" content="https://res.cloudinary.com/dpx6w78bt/image/upload/f_auto/q_auto/v1786342039/Online_Tool_rc1ybr.png" />
+    <meta property="og:image:alt" content="Video to JPG Converter Tool Interface" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="https://res.cloudinary.com/dpx6w78bt/image/upload/f_auto/q_auto/v1786342039/Online_Tool_rc1ybr.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="min-h-screen flex flex-col font-sans">
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
+          <span class="font-bold text-xl tracking-tight text-slate-900">VideoTo<span class="text-blue-600">JPG</span></span>
+        </div>
+        <div class="hidden sm:flex items-center gap-2 px-3 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full text-sm font-medium">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          100% Private & Secure &mdash; Files never leave your device
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-grow max-w-5xl mx-auto px-4 py-8 w-full">
+      <slot />
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-auto">
+      <div class="max-w-5xl mx-auto px-4 text-center">
+        <p class="mb-4">Convert video to JPG, PNG, and WebP instantly. No server uploads. Absolute privacy.</p>
+        <p class="text-sm">&copy; {new Date().getFullYear()} VideoToJPG. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

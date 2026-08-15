@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+  <!-- Video Camera Body -->
+  <rect x="2" y="6" width="14" height="12" rx="3" fill="url(#brandGrad)" />
+  <!-- Video Camera Lens -->
+  <polygon points="16,9 22,5 22,19 16,15" fill="url(#brandGrad)" />
+  <!-- Center Image Dot (representing the extracted JPG) -->
+  <circle cx="9" cy="12" r="3" fill="#ffffff" />
+</svg>
